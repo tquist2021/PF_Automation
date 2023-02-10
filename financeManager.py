@@ -21,13 +21,16 @@ def AffinityFin(file):
                 Category = 'Bill'
             if 'TMOBILE' in Description:
                 Category = 'Bill'
+            if 'Storage' in Description:
+                Category = 'Bill'
             if 'LIFETIME' in Description:
                 Category = 'Gym'
             if '-' not in Amount:
                 Category = 'Income'
+
             transaction = (Date, Description, Amount, Category)
             transactions.append(transaction)
-            print(transactions)
+
         return transactions
         
         
@@ -41,6 +44,7 @@ rows = AffinityFin(file)
 
 for row in rows: 
     wks.insert_row([row[0], row[1], row[2], row[3]], 8)
-    print('data pushed')
+    print('Code running')
     time.sleep(2)
 
+print('Code complete, check https://docs.google.com/spreadsheets/d/1ZTeMpx6Jrbi3ZX3vedfoDuejHibYNrIbup8kEwmg9to/edit#gid=62812605 for more details')
